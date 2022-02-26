@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <title>Sukha Jukebox</title>
+</head>
+<body>
+  <div id="container">
+    <a href="/">
+      <div id="top">
+        <img class="logo" src="img/logo.jpg" alt="Sukha Coffee">
+      </div>
+    </a>
+    <div x-data="{
+      search: '',
+      searchedRecently: '',
+      timer: 0,
+      searchTracks() {
+        if (!this.search || this.search === '')    { return }
+        if (this.search === this.searchedRecently) { return }
+
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+          search(this.search);
+          this.searchedRecently = this.search;
+        }, 375);
+      }
+    }" id="search-area">
+      <input x-model="search" @keyup="searchTracks()" class="search" type="text" placeholder="Sen çal, kafe dinlesin...">
+    </div>
+    <div x-data id="wrapper">
+      <template x-for="track in $store.tracks">
+        <div @click="addToQueue(track.id)" class="song">
+          <img :src="track.cover" :alt="track.name">
+          <div class="info-box-1">
+            <h3 x-text="track.name"></h3>
+            <h4 x-text="track.artist + ' • ' + track.album"></h4>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "sukha-jukebox",
+  "version": "0.0.1",
+  "description": "Sukha Coffee Jukebox and Menu application that is based on Spotify API",
+  "type": "module",
+  "main": "src/main.js",
+  "directories": {
+    "src": "src",
+    "public": "public"
+  },
+  "scripts": {
+    "clean": "killall sass & rm public/css/*.css",
+    "dev": "sass --watch public/css .& nodemon src/main.js -e js,html --watch public --watch src"
+  },
+  "keywords": [
+    "Sukha-Coffee",
+    "Sukha",
+    "Spotify",
+    "Coffee",
+    "Jukebox",
+    "Menu"
+  ],
+  "author": "nikneym",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3",
+    "spotify-web-api-node": "^5.0.2"
+  }
+}

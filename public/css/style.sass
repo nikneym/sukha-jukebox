@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap')
+
+html, body
+  padding: 0
+  margin: 0
+  font-weight: normal
+  width: 100%
+
+body
+  background: rgb(36, 36, 36)
+  font-family: Arvo, Arial, Helvetica
+
+#container
+  width: 100%
+
+  #top
+    padding: 5px 5px
+    margin: 0 auto
+    top: 0
+    text-align: center
+    background: black
+
+    img.logo
+      text-align: center
+      width: 64px
+      height: 64px
+      border-radius: 100px
+
+  //#1db954
+  #wrapper
+    margin: 10px auto
+    color: white
+    width: 85%
+
+    .song
+      display: block
+      position: relative
+      margin: 0 auto
+      margin-bottom: 20px
+      padding: 15px 15px
+      border-radius: 3px
+      background: rgb(50, 50, 50)
+      min-height: 64px
+      transition: 0.2s
+      box-shadow: -9px 10px 0px rgb(27, 27, 27)
+      top: 0
+      right: 0
+
+      &:hover
+        background: rgb(80, 80, 80)
+        cursor: pointer
+
+      &:active
+        top: 4px
+        right: 4px
+        box-shadow: -5px 6px 0px rgb(27, 27, 27)
+        background: #1db954
+        cursor: pointer
+
+      img
+        float: left
+        display: inline-block
+        width: 64px
+        height: 64px
+        border-radius: 2px
+
+      .info-box-1
+        display: block
+        margin-left: 75px
+        margin-top: 5px
+        color: white
+
+        h3
+          position: relative
+          display: block
+          padding: 0
+          font-weight: bold
+          margin: 0
+          font-size: 17pt
+
+        h4
+          position: relative
+          display: block
+          padding: 0
+          font-weight: normal
+          margin: 0
+          font-size: 16pt
+          color: rgb(200, 200, 200)
+
+#search-area
+  background: rgb(8, 8, 8)
+  margin: 0 auto
+  margin-bottom: 20px
+
+  input.search
+    background: transparent
+    box-shadow: inset 0px 0px 8px black
+    color: white
+    font-size: 20pt
+    display: block
+    position: relative
+    margin: 0 auto
+    width: 60%
+    border: 0
+    padding: 20px 20px
+    outline: 5px solid #1db954
+    border-radius: 2px
+    font-family: Arvo, Arial, Helvetica
