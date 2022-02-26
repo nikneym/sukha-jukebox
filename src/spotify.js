@@ -24,7 +24,9 @@ const genresBlacklist = [
   "house",
   "parody",
   "drill",
-  "edm"
+  "edm",
+  "cumbia",
+  "latin"
 ];
 
 class Spotify {
@@ -126,6 +128,7 @@ class Spotify {
     return this.client.getArtist(id)
       .then(data => {
         if (data.body.genres.length === 0) { return }
+        //console.log(data.body.genres);
         return data.body.genres;
       })
       .catch(async data => {
