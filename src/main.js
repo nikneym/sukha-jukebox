@@ -52,13 +52,24 @@ app.get("/search/:value", async (req, res) => {
   });
 });
 
+// TODO: rate limiting
+// will help to keep track of the played tracks
+let lastPlayedId;
+
 // Adds a track to queue, or not!
 app.post("/que", async (req, res) => {
   const id = req.body.id;
+  if (id === lastPlayedId) {
+    return res.json({
+      status: false,
+      message: "Parça zaten sıraya eklendi."
+    });
+  }
+
   if (!id) {
     return res.json({
       status: false,
-      message: "bad request"
+      message: "Parça sıraya eklenemedi!"
     });
   }
 
@@ -70,7 +81,7 @@ app.post("/que", async (req, res) => {
     });
   }
 
-  const queued = spotify.addToQueue(id);
+  const queued = await spotify.addToQueue(id);
   if (!queued) {
     return res.json({
       status: false,
@@ -78,6 +89,7 @@ app.post("/que", async (req, res) => {
     });
   }
 
+  lastPlayedId = id;
   return res.json({
     status: true,
     message: "Parçan sıraya eklendi!"

@@ -23,7 +23,11 @@ document.addEventListener("alpine:init", () => {
     return Alpine.store("tracks", data.items);
   }
 
+  let lastPlayedId;
   addToQueue = async function(id) {
+    if (id === lastPlayedId) { console.log("Parça zaten sıraya eklendi. (client-side)"); return }
+    lastPlayedId = id;
+
     const res = await fetch("/que", {
       method: "POST",
       credentials: "same-origin",
