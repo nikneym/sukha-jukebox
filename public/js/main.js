@@ -5,6 +5,7 @@ document.addEventListener("alpine:init", () => {
   console.log("ready to go!");
   const searchArea = document.querySelector("input.search");
   searchArea.focus();
+
   const infoBox = document.querySelector("#wrapper #response");
   const green = "#1db954";
   const red   = "#ff5555";
@@ -34,7 +35,7 @@ document.addEventListener("alpine:init", () => {
     });
 
     clearTimeout(timer);
-    timer = setTimeout(resetInfoBox, 1000); // reset
+    timer = setTimeout(resetInfoBox, 1250); // reset
   }
 
   search = async function(input) {
@@ -57,7 +58,7 @@ document.addEventListener("alpine:init", () => {
 
   let lastPlayedId;
   addToQueue = async function(id) {
-    if (id === lastPlayedId) { showInfoBox(false, "Aynı parçaya tekrar tıkladın!"); return }
+    if (id === lastPlayedId) { await showInfoBox(false, "Aynı parçaya tekrar tıkladın!"); return }
     lastPlayedId = id;
 
     const res = await fetch("/que", {
@@ -73,6 +74,6 @@ document.addEventListener("alpine:init", () => {
 
     const { status, message } = await res.json();
     //console.log(status, message); // for testing purposes
-    showInfoBox(status, message);
+    await showInfoBox(status, message);
   }
 });

@@ -13,7 +13,7 @@
   <div id="container">
     <a href="/">
       <div id="top">
-        <img class="logo" src="img/logo.jpg" alt="Sukha Coffee">
+        <img class="logo" src="img/logo.jpg" alt="">
       </div>
     </a>
     <div x-data="{
@@ -25,8 +25,8 @@
         if (this.search === this.searchedRecently) { return }
 
         clearTimeout(this.timer);
-        this.timer = setTimeout(() => {
-          search(this.search);
+        this.timer = setTimeout(async () => {
+          await search(this.search);
           this.searchedRecently = this.search;
         }, 375);
       }
@@ -35,7 +35,7 @@
     </div>
     <div x-data id="wrapper">
       <template x-for="track in $store.tracks">
-        <div @click="addToQueue(track.id)" class="song">
+        <div @click="await addToQueue(track.id)" class="song">
           <img :src="track.cover" :alt="track.name">
           <div class="info-box-1">
             <h3 x-text="track.name"></h3>
@@ -47,6 +47,10 @@
         <span x-text="$store.box.message"></span>
       </div>
     </div>
+    <div class="push"></div>
   </div>
+  <footer>
+    Made with ❤️ by <a href="https://github.com/nikneym" target="_blank" rel="noopener noreferrer">nikneym</a>
+  </footer>
 </body>
 </html>

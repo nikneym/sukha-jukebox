@@ -85,7 +85,7 @@ app.post("/que", async (req, res) => {
   if (!queued) {
     return res.json({
       status: false,
-      message: "Görünüşe göre şuanda müzik çalınmıyor..."
+      message: "Görünüşe göre kafe şuan sessiz..."
     });
   }
 
