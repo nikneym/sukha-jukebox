@@ -41,7 +41,11 @@ const genresBlacklist = [
   "korean",
   "skate",
   "screamo",
-  "children"
+  "children",
+  "carioca",
+  "consciente",
+  "ostentacao",
+  "paulista"
 ];
 
 class Spotify {

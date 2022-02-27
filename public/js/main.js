@@ -9,7 +9,7 @@ document.addEventListener("alpine:init", () => {
   const green = "#1db954";
   const red   = "#ff5555";
 
-  // storetation
+  // store up
   Alpine.store("tracks", []);
   Alpine.store("box", {
     on: false,
@@ -34,7 +34,7 @@ document.addEventListener("alpine:init", () => {
     });
 
     clearTimeout(timer);
-    timer = setTimeout(resetInfoBox, 1750); // reset
+    timer = setTimeout(resetInfoBox, 1000); // reset
   }
 
   search = async function(input) {
@@ -72,7 +72,7 @@ document.addEventListener("alpine:init", () => {
     });
 
     const { status, message } = await res.json();
-    console.log(status, message); // for testing purposes
+    //console.log(status, message); // for testing purposes
     showInfoBox(status, message);
   }
 });

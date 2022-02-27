@@ -35,7 +35,7 @@ app.get("/search/:value", async (req, res) => {
   }
   const tracks = await spotify.search({
     q: q,
-    limit: 8,
+    limit: 4,
     offset: 0
   });
 
