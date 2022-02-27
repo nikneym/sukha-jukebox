@@ -43,6 +43,10 @@
           </div>
         </div>
       </template>
+
+      <div x-show="$store.box.on" @click="resetInfoBox()" id="response">
+        <span x-text="$store.box.message"></span>
+      </div>
     </div>
   </div>
 </body>

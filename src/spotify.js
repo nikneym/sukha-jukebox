@@ -4,7 +4,16 @@ const artistsWhitelist = [
   "Red Hot Chili Peppers",
   "Arctic Monkeys",
   "John Mayer",
-  "SIAMES"
+  "SIAMES",
+  "George Michael",
+  "Wham!",
+  "B.B. King",
+  "Albert King",
+  "Richie Kotzen",
+  "Stavroz",
+  "Jimi Hendrix",
+  "Guns N' Roses",
+  "Michael Jackson"
 ];
 
 const genresBlacklist = [
@@ -26,7 +35,13 @@ const genresBlacklist = [
   "drill",
   "edm",
   "cumbia",
-  "latin"
+  "latin",
+  "aussietronica",
+  "k-pop",
+  "korean",
+  "skate",
+  "screamo",
+  "children"
 ];
 
 class Spotify {
