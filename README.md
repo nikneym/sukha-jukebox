@@ -1,2 +1,2 @@
 # sukha-jukebox
-a jukebox that is entagrated to Spotify API to play the music desired by the customers
+a jukebox that is integrated to Spotify API to play the music desired by the customers [MOVED TO HEROKU]
